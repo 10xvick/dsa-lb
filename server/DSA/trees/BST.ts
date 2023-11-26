@@ -29,13 +29,24 @@ BST.prototype.search_iterative = function(root,value){
   return node;
 }
 
+BST.prototype.min = function(root){
+  return root?.left ? this.min(root.left) : root
+}
+
+BST.prototype.max = function(root){
+  return root?.right ? this.max(root.right) : root
+}
+
 export default function BST_() {
   console.log('BST');
 
   const values = [10,8,21,7,27,5,4,3]
   const bst = new BST(values);
+  const root = bst.root;
   console.dir( bst, {depth:null});
-  console.log('level order traversal ',traversal.levelorder(bst.root))
-  console.log('inorder traversal of bst ',traversal.inorder(bst.root))
-  console.log('search 3 in bst', bst.search(bst.root, 3 ))
+  console.log('level order traversal ',traversal.levelorder(root))
+  console.log('inorder traversal of bst ',traversal.inorder(root))
+  console.log('search 3 in bst', bst.search(root, 3 ))
+  console.log('min in bst', bst.min(root));
+  console.log('max in bst', bst.max(root));
 }
