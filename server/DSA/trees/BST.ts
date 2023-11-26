@@ -35,7 +35,7 @@ export default function BST_() {
   const values = [10,8,21,7,27,5,4,3]
   const bst = new BST(values);
   console.dir( bst, {depth:null});
-  console.log('level order traversal',traversal.levelorder(bst.root))
-  console.log('3 in bst', bst.search(bst.root, 3 ))
-
+  console.log('level order traversal ',traversal.levelorder(bst.root))
+  console.log('inorder traversal of bst ',traversal.inorder(bst.root))
+  console.log('search 3 in bst', bst.search(bst.root, 3 ))
 }

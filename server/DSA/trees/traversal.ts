@@ -16,5 +16,21 @@ export const traversal = {
             level = newlevel;
         }
         return arr;
+    },
+
+    inorder( node ){
+        const arr = [];
+
+        function trav(node){
+            if(!node) return arr.push(null);
+            trav(node.left);
+            arr.push(node.value);
+            trav(node.right);
+        }
+
+        trav(node)
+
+        return arr;
+        
     }
 }
