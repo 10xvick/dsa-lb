@@ -1,3 +1,7 @@
+export function Node(val=0,left=null,right=null){
+  this.value = val,this.left=left,this.right=right;
+}
+
 export default function tree() {
   function node(data?) {
     this.data = data;

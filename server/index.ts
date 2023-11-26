@@ -6,6 +6,6 @@ function callall(...fns) {
   fns.forEach((e) => e());
 }
 
-callall(tree, BST_);
+callall( BST_);
 
 console.log('xyzabc');
