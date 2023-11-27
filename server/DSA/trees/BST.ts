@@ -66,7 +66,7 @@ BST.prototype.delete = function (root, value) {
 export default function BST_() {
   console.log("BST");
 
-  const values = [10, 8, 21, 7, 27, 5, 4, 3];
+  const values = [10, 8, 21, 7, 6, 27, 5, 4, 3];
   const bst = new BST(values);
   const root = bst.root;
   console.dir(bst, { depth: null });
