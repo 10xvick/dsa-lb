@@ -37,12 +37,28 @@ BST.prototype.max = function (root) {
   return root?.right ? this.max(root.right) : root;
 };
 
-BST.prototype.delete = function (root, val) {};
+BST.prototype.delete = function (root, value) {
+  if (!root) return null;
+
+  if (root.value == value) {
+    if (root.left == null && root.right == null) {
+      return null;
+    } else if (root.left == null || root.right == null) {
+      return root.left || root.right;
+    } else {
+      const min = this.min(root.right);
+      root.value = min.value;
+      root.right = this.delete(root.right, min.value);
+      return root;
+    }
+  } else if (value < root.value) root.left = this.delete(root.left, value);
+  else root.right = this.delete(root.right, value);
+  return root;
+};
 
 /**
  * todo:-------------------------------------
  *
- * deletion
  * inorder predecessor and inorder successor
  *
  */
