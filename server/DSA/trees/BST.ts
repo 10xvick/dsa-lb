@@ -75,4 +75,5 @@ export default function BST_() {
   console.log("search 3 in bst", bst.search(root, 3));
   console.log("min in bst", bst.min(root));
   console.log("max in bst", bst.max(root));
+  console.log("A" + 1);
 }
