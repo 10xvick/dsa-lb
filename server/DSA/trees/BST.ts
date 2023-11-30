@@ -56,6 +56,18 @@ BST.prototype.delete = function (root, value) {
   return root;
 };
 
+BST.prototype.balanced = function () {
+  const inorder = traversal.inorder(this.root);
+
+  function tree(min, max) {
+    if (min > max) return;
+    const mid = Math.floor((min + max) / 2);
+    return new Node(inorder[mid], tree(min, mid - 1), tree(mid + 1, max));
+  }
+
+  return tree(0, inorder.length - 1);
+};
+
 /**
  * todo:-------------------------------------
  *
@@ -70,6 +82,7 @@ export default function BST_() {
   const bst = new BST(values);
   const root = bst.root;
   console.dir(bst, { depth: null });
+  console.dir({ "balanced BST": bst.balanced() }, { depth: null });
   console.log("level order traversal ", traversal.levelorder(root));
   console.log("inorder traversal of bst ", traversal.inorder(root));
   console.log("search 3 in bst", bst.search(root, 3));
